@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwtk6ww61t1dp"]
+[gd_scene load_steps=4 format=3 uid="uid://bwtk6ww61t1dp"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_mi7y6"]
 [ext_resource type="Texture2D" uid="uid://dmpk5f77pi5u7" path="res://assets/graphics/player/player.png" id="1_tmjdg"]
-[ext_resource type="PackedScene" uid="uid://b13jceck0mfb6" path="res://ephemeral/lazer.tscn" id="2_d4gdh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8qmdn"]
 radius = 51.0882
@@ -11,9 +10,8 @@ radius = 51.0882
 script = ExtResource("1_mi7y6")
 
 [node name="NozzleArray" type="Marker2D" parent="."]
-position = Vector2(2, -141)
-
-[node name="Lazer" parent="NozzleArray" instance=ExtResource("2_d4gdh")]
+position = Vector2(141, 2.08165e-12)
+rotation = 1.5708
 
 [node name="Nozzle1" type="Marker2D" parent="NozzleArray"]
 
@@ -24,10 +22,11 @@ position = Vector2(-8, 5)
 position = Vector2(7, 5)
 
 [node name="PlayerTexture" type="Sprite2D" parent="."]
-position = Vector2(-17.5, -47)
+position = Vector2(43, -18)
+rotation = 1.5708
 texture = ExtResource("1_tmjdg")
 region_rect = Rect2(0, 0, 157, 229)
 
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-21, -3)
+position = Vector2(1, -19)
 shape = SubResource("CircleShape2D_8qmdn")
