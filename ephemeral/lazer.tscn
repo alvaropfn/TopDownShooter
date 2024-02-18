@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b13jceck0mfb6"]
+
+[ext_resource type="Texture2D" uid="uid://2akrbspdmkem" path="res://assets/graphics/projectiles/blue.png" id="1_r8yp3"]
+[ext_resource type="Script" path="res://ephemeral/lazer.gd" id="1_yuugw"]
+[ext_resource type="Texture2D" uid="uid://cqge5sij7mvnr" path="res://assets/graphics/lights/textures/circle.png" id="2_ggrmq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mekud"]
+radius = 6.0
+height = 44.0
+
+[node name="Lazer" type="Area2D"]
+script = ExtResource("1_yuugw")
+
+[node name="LazerSprite" type="Sprite2D" parent="."]
+position = Vector2(-1, 70)
+texture = ExtResource("1_r8yp3")
+
+[node name="LazerMainLight" type="PointLight2D" parent="."]
+scale = Vector2(0.264687, 0.264687)
+energy = 0.6
+texture = ExtResource("2_ggrmq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 11)
+shape = SubResource("CapsuleShape2D_mekud")

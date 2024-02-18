@@ -6,7 +6,7 @@ extends CharacterBody2D
 func _ready():
 	rotate(PI)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	handle_movement()
 	handle_rotation()
 
@@ -18,7 +18,7 @@ func handle_movement():
 	if Input.is_action_pressed("move_left"): direction.x -= 1
 	
 	var speed = walk_speed
-	if(Input.is_action_pressed("sprint")):
+	if Input.is_action_pressed("sprint"):
 		speed = sprint_speed
 	
 	velocity = direction.normalized() * speed
@@ -30,3 +30,8 @@ func handle_rotation():
 	target_rotation += deg_to_rad(90)
 	rotation = target_rotation
 	
+func handle_main_weapon():
+	if Input.is_action_pressed("click_primary"):
+		var nozzle_positions = $NozzleArray.get_children()
+		
+		
