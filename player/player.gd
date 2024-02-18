@@ -16,10 +16,17 @@ func handle_movement():
 	if Input.is_action_pressed("move_right"): direction.x += 1
 	if Input.is_action_pressed("move_down"): direction.y += 1
 	if Input.is_action_pressed("move_left"): direction.x -= 1
-	velocity = direction.normalized() * walk_speed
+	
+	var speed = walk_speed
+	if(Input.is_action_pressed("sprint")):
+		speed = sprint_speed
+	
+	velocity = direction.normalized() * speed
 	move_and_slide()
 	
 func handle_rotation():
-	# update to use rotation instead
-	look_at(get_global_mouse_position())
-	print(rotation)
+	var mouse_pos= get_global_mouse_position()
+	var target_rotation = atan2(mouse_pos.y - global_position.y, mouse_pos.x - global_position.x)
+	target_rotation += deg_to_rad(90)
+	rotation = target_rotation
+	
