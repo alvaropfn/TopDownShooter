@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b13jceck0mfb6"]
+[gd_scene load_steps=6 format=3 uid="uid://b13jceck0mfb6"]
 
 [ext_resource type="Texture2D" uid="uid://2akrbspdmkem" path="res://assets/graphics/projectiles/blue.png" id="1_r8yp3"]
 [ext_resource type="Script" path="res://ephemeral/lazer.gd" id="1_yuugw"]
 [ext_resource type="Texture2D" uid="uid://cqge5sij7mvnr" path="res://assets/graphics/lights/textures/circle.png" id="2_ggrmq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_an3vq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mekud"]
 radius = 6.0
@@ -10,7 +12,8 @@ height = 44.0
 
 [node name="Lazer" type="RigidBody2D"]
 rotation = 1.5708
-lock_rotation = true
+mass = 0.01
+physics_material_override = SubResource("PhysicsMaterial_an3vq")
 script = ExtResource("1_yuugw")
 
 [node name="LazerSprite" type="Sprite2D" parent="."]
