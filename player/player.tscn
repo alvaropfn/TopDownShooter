@@ -9,6 +9,12 @@ radius = 51.0882
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_mi7y6")
 
+[node name="LazerTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="GranadeTimer" type="Timer" parent="."]
+wait_time = 2.0
+
 [node name="NozzleArray" type="Marker2D" parent="."]
 position = Vector2(141, 2.08165e-12)
 rotation = 1.5708
@@ -30,3 +36,6 @@ region_rect = Rect2(0, 0, 157, 229)
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(1, -19)
 shape = SubResource("CircleShape2D_8qmdn")
+
+[connection signal="timeout" from="LazerTimer" to="." method="_on_lazer_timer_timeout"]
+[connection signal="timeout" from="GranadeTimer" to="." method="_on_granade_timer_timeout"]
