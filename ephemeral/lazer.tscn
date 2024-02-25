@@ -14,7 +14,14 @@ height = 44.0
 rotation = 1.5708
 mass = 0.01
 physics_material_override = SubResource("PhysicsMaterial_an3vq")
+max_contacts_reported = 1
+contact_monitor = true
 script = ExtResource("1_yuugw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
 
 [node name="LazerSprite" type="Sprite2D" parent="."]
 position = Vector2(-1, 70)
@@ -28,3 +35,5 @@ texture = ExtResource("2_ggrmq")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 11)
 shape = SubResource("CapsuleShape2D_mekud")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
