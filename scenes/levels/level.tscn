@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bm4jw3cqlopvs"]
+[gd_scene load_steps=6 format=3 uid="uid://bm4jw3cqlopvs"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_1rsdt"]
 [ext_resource type="PackedScene" uid="uid://bwtk6ww61t1dp" path="res://player/player.tscn" id="1_w8vrc"]
 [ext_resource type="Texture2D" uid="uid://cqn14jfyudpcn" path="res://assets/graphics/objects/gate.png" id="3_c2sai"]
+[ext_resource type="PackedScene" uid="uid://co6rr4jfpe7v0" path="res://objects/billboard.tscn" id="4_7ksoc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vu2hm"]
 size = Vector2(854, 179.5)
@@ -31,6 +32,10 @@ shape = SubResource("RectangleShape2D_vu2hm")
 position = Vector2(77, 596)
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Billboard" parent="." instance=ExtResource("4_7ksoc")]
+position = Vector2(-1097, 737)
+rotation = -0.752237
 
 [connection signal="body_entered" from="StaticBody2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="StaticBody2D/Area2D" to="." method="_on_area_2d_body_exited"]
