@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwtk6ww61t1dp"]
+[gd_scene load_steps=5 format=3 uid="uid://bwtk6ww61t1dp"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_mi7y6"]
 [ext_resource type="Texture2D" uid="uid://dmpk5f77pi5u7" path="res://assets/graphics/player/player.png" id="1_tmjdg"]
@@ -6,8 +6,14 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_8qmdn"]
 radius = 51.0882
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uaonu"]
+radius = 19.0
+height = 82.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_mi7y6")
+wlk_spd = 400
+run_spd = 650
 
 [node name="LazerTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -36,6 +42,15 @@ region_rect = Rect2(0, 0, 157, 229)
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(1, -19)
 shape = SubResource("CircleShape2D_8qmdn")
+
+[node name="WeaponCollision" type="CollisionShape2D" parent="."]
+position = Vector2(92, 2.08165e-12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_uaonu")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.65, 0.65)
+limit_smoothed = true
 
 [connection signal="timeout" from="LazerTimer" to="." method="_on_lazer_timer_timeout"]
 [connection signal="timeout" from="GranadeTimer" to="." method="_on_granade_timer_timeout"]
