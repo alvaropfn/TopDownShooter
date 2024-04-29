@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var wlk_spd = 200
-@export var run_spd = 400
+@export var wlk_spd = 400
+@export var run_spd = 600
 var can_shoot = true
 var can_granade = true
 
@@ -9,16 +9,24 @@ var laser_scene: PackedScene = preload("res://ephemeral/lazer.tscn")
 var granade_scene: PackedScene = preload("res://ephemeral/granade.tscn")
 
 func _ready():
-	rotate(PI)
+	pass
 
-func _physics_process(_delta):
+
+func _physics_process(delta):
+	handle_rotation(delta)
 	handle_movement()
 	handle_main_weapon()
 	handle_side_weapon()
 
 
+func handle_rotation(delta):
+	var target = (get_global_mouse_position() - global_position).angle()
+	var current = global_rotation
+	var speed = 0.1
+	global_rotation = lerp_angle(current, target, speed)
+
+
 func handle_movement():
-	look_at(get_global_mouse_position())
 	var direction = Vector2()
 	if Input.is_action_pressed("move_up"): direction.y -= 1
 	if Input.is_action_pressed("move_right"): direction.x += 1
@@ -31,6 +39,7 @@ func handle_movement():
 	
 	velocity = direction.normalized() * spd
 	move_and_slide()
+
 
 func get_player_direction():
 	return (get_global_mouse_position() - position).normalized()

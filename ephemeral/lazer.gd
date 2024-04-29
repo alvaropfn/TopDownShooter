@@ -6,7 +6,7 @@ extends RigidBody2D
 func _ready():
 	rotate(dir.angle())
 	gravity_scale = 0
-	mass = 0
+	mass = 0.0001
 
 
 func _physics_process(_delta):
@@ -16,11 +16,11 @@ func _physics_process(_delta):
 
 
 func apply_damage(body):
-	print(body)
+	print("hit: ", body)
 	queue_free()
 
 
 func _on_timer_timeout():
-	print('lazer died')
+	print('lazer fade')
 	queue_free()
 	

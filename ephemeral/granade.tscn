@@ -4,7 +4,9 @@
 [ext_resource type="Script" path="res://ephemeral/granade.gd" id="1_4sw8a"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pjwvq"]
+friction = 0.9
 rough = true
+bounce = 0.4
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ousxe"]
 radius = 11.0454
@@ -13,8 +15,13 @@ radius = 11.0454
 position = Vector2(1, 0)
 mass = 1.5
 physics_material_override = SubResource("PhysicsMaterial_pjwvq")
+gravity_scale = 1.66533e-16
 linear_damp = 1.75
 script = ExtResource("1_4sw8a")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
 
 [node name="GranadeSprite" type="Sprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
@@ -22,3 +29,5 @@ texture = ExtResource("1_2nj1q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_ousxe")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
