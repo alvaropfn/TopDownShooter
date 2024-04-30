@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://bwtk6ww61t1dp"]
+[gd_scene load_steps=12 format=3 uid="uid://bwtk6ww61t1dp"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_mi7y6"]
 [ext_resource type="Texture2D" uid="uid://dmpk5f77pi5u7" path="res://assets/graphics/player/player.png" id="1_tmjdg"]
 [ext_resource type="PackedScene" uid="uid://bps0kfcr20nl0" path="res://behaviours/health_manager.tscn" id="2_gqiga"]
 [ext_resource type="Texture2D" uid="uid://dugf3rginfcun" path="res://assets/graphics/decals/white.png" id="3_uv0g2"]
+[ext_resource type="Texture2D" uid="uid://cqge5sij7mvnr" path="res://assets/graphics/lights/textures/circle.png" id="5_cg0ol"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8qmdn"]
 radius = 51.0882
@@ -34,7 +35,7 @@ color = Color(0.117647, 1, 1, 0.741176)
 color_ramp = SubResource("GradientTexture1D_rbqrd")
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_srocw"]
-polygon = PackedVector2Array(-22, -67, -19, -71, -7, -75, -5, -73, 4, -78, 18, -77, 27, -80, 35, -77, 42, -67, 51, -59, 51, -55, 55, -48, 66, -45, 82, -29, 88, -29, 93, -30, 102, -23, 114, -21, 117, -20, 117, -17, 129, -16, 133, -13, 139, -7, 140, 6, 137, 12, 135, 14, 130, 14, 128, 18, 117, 18, 114, 16, 109, 24, 103, 25, 48, 22, 41, 27, 30, 29, 20, 35, -3, 43, -18, 42, -29, 35, -31, 27, -38, 15, -43, 11, -47, 3, -44, 0, -45, -3, -50, -6, -53, -14, -54, -38, -48, -48, -44, -59, -34, -65, -24, -65)
+polygon = PackedVector2Array(-22, -67, -19, -71, -7, -75, -5, -73, 4, -78, 18, -77, 27, -80, 35, -77, 42, -67, 51, -59, 51, -55, 55, -48, 66, -45, 82, -29, 88, -29, 93, -30, 87, -18, 92, -16, 102, -23, 111, -21, 110, -17, 113, -16, 117, -17, 129, -16, 133, -13, 139, -7, 140, 6, 137, 12, 135, 14, 130, 14, 128, 18, 117, 18, 114, 16, 109, 24, 103, 25, 48, 22, 41, 27, 30, 29, 20, 35, -3, 43, -18, 42, -29, 35, -31, 27, -38, 15, -43, 11, -47, 3, -44, 0, -39, -6, -38, -11, -42, -15, -52, -10, -53, -17, -53, -24, -49, -28, -44, -33, -43, -42, -48, -48, -44, -59, -35, -64, -30, -55, -26, -54, -21, -56)
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 30
@@ -42,6 +43,9 @@ script = ExtResource("1_mi7y6")
 
 [node name="LazerTimer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="LazerLightsTimer" type="Timer" parent="."]
+wait_time = 0.25
 
 [node name="GranadeTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -78,6 +82,7 @@ region_rect = Rect2(0, 0, 157, 229)
 [node name="Vents" type="Node2D" parent="."]
 
 [node name="Vent03" type="GPUParticles2D" parent="Vents"]
+visible = false
 position = Vector2(111, 16)
 rotation = 0.785398
 scale = Vector2(1, 1)
@@ -111,6 +116,7 @@ one_shot = true
 explosiveness = 0.65
 
 [node name="Vent04" type="GPUParticles2D" parent="Vents"]
+visible = false
 position = Vector2(88, 16)
 rotation = 0.785398
 scale = Vector2(1, 1)
@@ -124,5 +130,37 @@ explosiveness = 0.65
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 occluder = SubResource("OccluderPolygon2D_srocw")
 
+[node name="Lights" type="Node2D" parent="."]
+
+[node name="LazerLights" type="PointLight2D" parent="Lights"]
+position = Vector2(103, -20)
+color = Color(0.184314, 0.996078, 0.996078, 1)
+energy = 5.0
+shadow_enabled = true
+texture = ExtResource("5_cg0ol")
+texture_scale = 0.1
+
+[node name="BackLight" type="PointLight2D" parent="Lights"]
+position = Vector2(-48, -36)
+color = Color(0.956863, 0.952941, 0.388235, 1)
+shadow_enabled = true
+texture = ExtResource("5_cg0ol")
+texture_scale = 0.1
+
+[node name="BackLight2" type="PointLight2D" parent="Lights"]
+position = Vector2(-26, -58)
+color = Color(0.956863, 0.952941, 0.388235, 1)
+shadow_enabled = true
+texture = ExtResource("5_cg0ol")
+texture_scale = 0.1
+
+[node name="BackLight3" type="PointLight2D" parent="Lights"]
+position = Vector2(-43, -9)
+color = Color(0.956863, 0.952941, 0.388235, 1)
+shadow_enabled = true
+texture = ExtResource("5_cg0ol")
+texture_scale = 0.1
+
 [connection signal="timeout" from="LazerTimer" to="." method="_on_lazer_timer_timeout"]
+[connection signal="timeout" from="LazerLightsTimer" to="." method="_on_lazer_lights_timer_timeout"]
 [connection signal="timeout" from="GranadeTimer" to="." method="_on_granade_timer_timeout"]

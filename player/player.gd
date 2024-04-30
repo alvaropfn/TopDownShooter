@@ -44,16 +44,22 @@ func handle_movement():
 func get_player_direction():
 	return (get_global_mouse_position() - position).normalized()
 
+func set_lights(value : bool):
+	var lazer_lights = $Lights/LazerLights as PointLight2D
+	lazer_lights.enabled = value
+
 
 func handle_main_weapon():
 	if Input.is_action_pressed("click_primary") and can_shoot:
 		
+		set_lights(true)
 		var exaust = $Vents.get_children()
 		for vent in range(exaust.size()):
 			exaust[vent].emitting = true
 		
 		can_shoot = false
 		$LazerTimer.start()
+		$LazerLightsTimer.start()
 		
 		var nozzle_positions = $NozzleArray.get_children()
 		var lazer = laser_scene.instantiate() as RigidBody2D
@@ -77,6 +83,10 @@ func handle_side_weapon():
 		granade.position = nozzle.global_position
 		granade.dir = get_player_direction()
 		root_scene.add_child(granade)
+
+
+func _on_lazer_lights_timer_timeout():
+	set_lights(false)
 
 
 func _on_lazer_timer_timeout():

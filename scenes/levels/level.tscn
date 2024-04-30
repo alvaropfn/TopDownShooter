@@ -112,7 +112,7 @@ rotation = -0.752237
 position = Vector2(332, 1013)
 
 [node name="Player" parent="." instance=ExtResource("1_w8vrc")]
-position = Vector2(-614, 2240)
+position = Vector2(393, 1664)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.65, 0.65)
@@ -120,6 +120,10 @@ position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.15
+blend_mode = 1
 
 [connection signal="gate_entered" from="Structures/Gate" to="." method="_on_gate_gate_entered"]
 [connection signal="gate_exited" from="Structures/Gate" to="." method="_on_gate_gate_exited"]
