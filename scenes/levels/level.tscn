@@ -112,7 +112,7 @@ rotation = -0.752237
 position = Vector2(332, 1013)
 
 [node name="Player" parent="." instance=ExtResource("1_w8vrc")]
-position = Vector2(20, 1032)
+position = Vector2(-614, 2240)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.65, 0.65)

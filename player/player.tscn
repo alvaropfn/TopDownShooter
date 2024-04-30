@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bwtk6ww61t1dp"]
+[gd_scene load_steps=11 format=3 uid="uid://bwtk6ww61t1dp"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_mi7y6"]
 [ext_resource type="Texture2D" uid="uid://dmpk5f77pi5u7" path="res://assets/graphics/player/player.png" id="1_tmjdg"]
@@ -33,6 +33,9 @@ scale_max = 0.35
 color = Color(0.117647, 1, 1, 0.741176)
 color_ramp = SubResource("GradientTexture1D_rbqrd")
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_srocw"]
+polygon = PackedVector2Array(-22, -67, -19, -71, -7, -75, -5, -73, 4, -78, 18, -77, 27, -80, 35, -77, 42, -67, 51, -59, 51, -55, 55, -48, 66, -45, 82, -29, 88, -29, 93, -30, 102, -23, 114, -21, 117, -20, 117, -17, 129, -16, 133, -13, 139, -7, 140, 6, 137, 12, 135, 14, 130, 14, 128, 18, 117, 18, 114, 16, 109, 24, 103, 25, 48, 22, 41, 27, 30, 29, 20, 35, -3, 43, -18, 42, -29, 35, -31, 27, -38, 15, -43, 11, -47, 3, -44, 0, -45, -3, -50, -6, -53, -14, -54, -38, -48, -48, -44, -59, -34, -65, -24, -65)
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 30
 script = ExtResource("1_mi7y6")
@@ -46,7 +49,7 @@ wait_time = 2.0
 [node name="health_manager" parent="." instance=ExtResource("2_gqiga")]
 
 [node name="NozzleArray" type="Marker2D" parent="."]
-position = Vector2(141, 2.08165e-12)
+position = Vector2(142, -2.08165e-12)
 rotation = 1.5708
 
 [node name="Nozzle1" type="Marker2D" parent="NozzleArray"]
@@ -117,6 +120,9 @@ texture = ExtResource("3_uv0g2")
 lifetime = 0.15
 one_shot = true
 explosiveness = 0.65
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_srocw")
 
 [connection signal="timeout" from="LazerTimer" to="." method="_on_lazer_timer_timeout"]
 [connection signal="timeout" from="GranadeTimer" to="." method="_on_granade_timer_timeout"]
