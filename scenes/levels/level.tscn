@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bm4jw3cqlopvs"]
+[gd_scene load_steps=18 format=3 uid="uid://bm4jw3cqlopvs"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_1rsdt"]
 [ext_resource type="PackedScene" uid="uid://bwtk6ww61t1dp" path="res://player/player.tscn" id="1_w8vrc"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://dvfvkyw2b7785" path="res://assets/graphics/decals/moss/moss_4.png" id="7_hl4ad"]
 [ext_resource type="Texture2D" uid="uid://b5nu55gspgt00" path="res://assets/graphics/decals/moss/moss_5.png" id="8_426ru"]
 [ext_resource type="Texture2D" uid="uid://cauin55jjnv23" path="res://assets/graphics/tilesets/outside_walls.png" id="9_72ofl"]
+[ext_resource type="PackedScene" uid="uid://jbqmo55slxq3" path="res://scenes/house/House.tscn" id="11_jrbk4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l72gp"]
 resource_name = "walls"
@@ -57,7 +58,7 @@ script = ExtResource("1_1rsdt")
 texture_repeat = 2
 texture = ExtResource("2_c41yn")
 region_enabled = true
-region_rect = Rect2(-6221.07, -3478.39, 12721.6, 7674.75)
+region_rect = Rect2(-6221.07, -3478.39, 12721.6, 9776.85)
 
 [node name="TileMap" type="TileMap" parent="Ground"]
 tile_set = SubResource("TileSet_u0sjy")
@@ -94,11 +95,20 @@ texture = ExtResource("7_hl4ad")
 position = Vector2(4012, 296)
 texture = ExtResource("8_426ru")
 
-[node name="Gate" parent="." instance=ExtResource("2_lt030")]
+[node name="Structures" type="Node2D" parent="."]
+
+[node name="House" parent="Structures" instance=ExtResource("11_jrbk4")]
+position = Vector2(-2475, 1264)
+
+[node name="Gate" parent="Structures" instance=ExtResource("2_lt030")]
 position = Vector2(20, 0)
 
+[node name="Billboard" parent="Structures" instance=ExtResource("4_7ksoc")]
+position = Vector2(-1097, 737)
+rotation = -0.752237
+
 [node name="Player" parent="." instance=ExtResource("1_w8vrc")]
-position = Vector2(77, 596)
+position = Vector2(20, 1032)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(0.65, 0.65)
@@ -107,9 +117,5 @@ position_smoothing_speed = 2.0
 
 [node name="Projectiles" type="Node2D" parent="."]
 
-[node name="Billboard" parent="." instance=ExtResource("4_7ksoc")]
-position = Vector2(-1097, 737)
-rotation = -0.752237
-
-[connection signal="gate_entered" from="Gate" to="." method="_on_gate_gate_entered"]
-[connection signal="gate_exited" from="Gate" to="." method="_on_gate_gate_exited"]
+[connection signal="gate_entered" from="Structures/Gate" to="." method="_on_gate_gate_entered"]
+[connection signal="gate_exited" from="Structures/Gate" to="." method="_on_gate_gate_exited"]
