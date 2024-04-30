@@ -19,10 +19,10 @@ func _physics_process(delta):
 	handle_side_weapon()
 
 
-func handle_rotation(delta):
+func handle_rotation(_delta):
 	var target = (get_global_mouse_position() - global_position).angle()
 	var current = global_rotation
-	var speed = 0.1
+	var speed = 0.15
 	global_rotation = lerp_angle(current, target, speed)
 
 
