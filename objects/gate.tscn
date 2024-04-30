@@ -11,13 +11,13 @@ collision_layer = 4
 collision_mask = 11
 script = ExtResource("1_ept0n")
 
-[node name="Gate" type="Sprite2D" parent="."]
-position = Vector2(510, -535)
-texture = ExtResource("1_4h53p")
-
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(18, 29)
 polygon = PackedVector2Array(125, 214, -707, 214, -799, 190, -867, 141, -913, 82, -945, -26, -943, -1343, 2050, -1343, 2046, 20, 2008, 101, 1964, 148, 1911, 187, 1824, 213, 984, 213, 981, 37, 127, 28)
+
+[node name="Gate" type="Sprite2D" parent="."]
+position = Vector2(510, -535)
+texture = ExtResource("1_4h53p")
 
 [node name="GateArea" type="Area2D" parent="."]
 position = Vector2(575, 122)

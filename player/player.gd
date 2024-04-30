@@ -47,6 +47,11 @@ func get_player_direction():
 
 func handle_main_weapon():
 	if Input.is_action_pressed("click_primary") and can_shoot:
+		
+		var exaust = $Vents.get_children()
+		for vent in range(exaust.size()):
+			exaust[vent].emitting = true
+		
 		can_shoot = false
 		$LazerTimer.start()
 		

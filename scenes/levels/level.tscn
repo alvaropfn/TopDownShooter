@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bm4jw3cqlopvs"]
+[gd_scene load_steps=19 format=3 uid="uid://bm4jw3cqlopvs"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_1rsdt"]
 [ext_resource type="PackedScene" uid="uid://bwtk6ww61t1dp" path="res://player/player.tscn" id="1_w8vrc"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b5nu55gspgt00" path="res://assets/graphics/decals/moss/moss_5.png" id="8_426ru"]
 [ext_resource type="Texture2D" uid="uid://cauin55jjnv23" path="res://assets/graphics/tilesets/outside_walls.png" id="9_72ofl"]
 [ext_resource type="PackedScene" uid="uid://jbqmo55slxq3" path="res://scenes/house/House.tscn" id="11_jrbk4"]
+[ext_resource type="PackedScene" uid="uid://b3ceyeaokjt01" path="res://objects/steam_vent.tscn" id="14_7h3cn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l72gp"]
 resource_name = "walls"
@@ -106,6 +107,9 @@ position = Vector2(20, 0)
 [node name="Billboard" parent="Structures" instance=ExtResource("4_7ksoc")]
 position = Vector2(-1097, 737)
 rotation = -0.752237
+
+[node name="SteamVent" parent="Structures" instance=ExtResource("14_7h3cn")]
+position = Vector2(332, 1013)
 
 [node name="Player" parent="." instance=ExtResource("1_w8vrc")]
 position = Vector2(20, 1032)

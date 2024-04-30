@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcsjexknkn52d"]
+
+[ext_resource type="Texture2D" uid="uid://baly2gjkprv75" path="res://assets/graphics/objects/wall_lamp.png" id="1_r34mo"]
+
+[node name="WallLamp" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(523, 136)
+texture = ExtResource("1_r34mo")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

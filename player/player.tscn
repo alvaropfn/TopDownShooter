@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bwtk6ww61t1dp"]
+[gd_scene load_steps=10 format=3 uid="uid://bwtk6ww61t1dp"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_mi7y6"]
 [ext_resource type="Texture2D" uid="uid://dmpk5f77pi5u7" path="res://assets/graphics/player/player.png" id="1_tmjdg"]
 [ext_resource type="PackedScene" uid="uid://bps0kfcr20nl0" path="res://behaviours/health_manager.tscn" id="2_gqiga"]
+[ext_resource type="Texture2D" uid="uid://dugf3rginfcun" path="res://assets/graphics/decals/white.png" id="3_uv0g2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8qmdn"]
 radius = 51.0882
@@ -10,6 +11,27 @@ radius = 51.0882
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uaonu"]
 radius = 19.0
 height = 82.0
+
+[sub_resource type="Gradient" id="Gradient_l3fff"]
+offsets = PackedFloat32Array(0.514563, 1)
+colors = PackedColorArray(0.117647, 1, 1, 0.741176, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rbqrd"]
+gradient = SubResource("Gradient_l3fff")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_x3gcx"]
+particle_flag_disable_z = true
+angle_min = 135.0
+angle_max = 135.0
+direction = Vector3(1, 2.08165e-12, 2.08165e-12)
+spread = 15.0
+initial_velocity_min = 170.0
+initial_velocity_max = 170.0
+gravity = Vector3(2.08165e-12, 2.08165e-12, 2.08165e-12)
+scale_min = 0.25
+scale_max = 0.35
+color = Color(0.117647, 1, 1, 0.741176)
+color_ramp = SubResource("GradientTexture1D_rbqrd")
 
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 30
@@ -35,12 +57,6 @@ position = Vector2(-8, 5)
 [node name="Nozzle3" type="Marker2D" parent="NozzleArray"]
 position = Vector2(7, 5)
 
-[node name="PlayerTexture" type="Sprite2D" parent="."]
-position = Vector2(43, -18)
-rotation = 1.5708
-texture = ExtResource("1_tmjdg")
-region_rect = Rect2(0, 0, 157, 229)
-
 [node name="PlayerCollision" type="CollisionShape2D" parent="."]
 position = Vector2(1, -19)
 shape = SubResource("CircleShape2D_8qmdn")
@@ -49,6 +65,58 @@ shape = SubResource("CircleShape2D_8qmdn")
 position = Vector2(92, 2.08165e-12)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uaonu")
+
+[node name="PlayerTexture" type="Sprite2D" parent="."]
+position = Vector2(43, -18)
+rotation = 1.5708
+texture = ExtResource("1_tmjdg")
+region_rect = Rect2(0, 0, 157, 229)
+
+[node name="Vents" type="Node2D" parent="."]
+
+[node name="Vent03" type="GPUParticles2D" parent="Vents"]
+position = Vector2(111, 16)
+rotation = 0.785398
+scale = Vector2(1, 1)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_x3gcx")
+texture = ExtResource("3_uv0g2")
+lifetime = 0.15
+one_shot = true
+explosiveness = 0.65
+
+[node name="Vent01" type="GPUParticles2D" parent="Vents"]
+position = Vector2(118, -22)
+rotation = -0.785398
+scale = Vector2(1, 1)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_x3gcx")
+texture = ExtResource("3_uv0g2")
+lifetime = 0.15
+one_shot = true
+explosiveness = 0.65
+
+[node name="Vent02" type="GPUParticles2D" parent="Vents"]
+position = Vector2(94, -23)
+rotation = -0.785398
+scale = Vector2(1, 1)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_x3gcx")
+texture = ExtResource("3_uv0g2")
+lifetime = 0.15
+one_shot = true
+explosiveness = 0.65
+
+[node name="Vent04" type="GPUParticles2D" parent="Vents"]
+position = Vector2(88, 16)
+rotation = 0.785398
+scale = Vector2(1, 1)
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_x3gcx")
+texture = ExtResource("3_uv0g2")
+lifetime = 0.15
+one_shot = true
+explosiveness = 0.65
 
 [connection signal="timeout" from="LazerTimer" to="." method="_on_lazer_timer_timeout"]
 [connection signal="timeout" from="GranadeTimer" to="." method="_on_granade_timer_timeout"]
