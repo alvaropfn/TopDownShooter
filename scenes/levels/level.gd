@@ -7,7 +7,7 @@ func _on_gate_gate_exited(body):
 	print("gate exited by: ", body)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var player = $Player/Camera2D.get_parent() as Node2D
 	var dir = (get_global_mouse_position() - player.position).normalized()
 	var cam = $Player/Camera2D as Camera2D
