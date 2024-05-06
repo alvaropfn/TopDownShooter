@@ -125,5 +125,7 @@ position_smoothing_speed = 2.0
 
 [node name="Projectiles" type="Node2D" parent="."]
 
+[connection signal="player_entered" from="Structures/House" to="." method="_on_house_player_entered"]
+[connection signal="player_exited" from="Structures/House" to="." method="_on_house_player_exited"]
 [connection signal="gate_entered" from="Structures/Gate" to="." method="_on_gate_gate_entered"]
 [connection signal="gate_exited" from="Structures/Gate" to="." method="_on_gate_gate_exited"]

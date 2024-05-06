@@ -106,6 +106,30 @@ tracks/2/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GranadeSprite:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Explosion:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 2.4),
+"transitions": PackedFloat32Array(1, 0.307786),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_ufvvw"]
 length = 0.001
@@ -133,6 +157,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Explosion:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fr1vw"]
 _data = {
@@ -159,6 +195,7 @@ autostart = true
 shape = SubResource("CircleShape2D_ousxe")
 
 [node name="GranadeSprite" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("1_2nj1q")
 
@@ -177,6 +214,7 @@ autoplay = "blink"
 
 [node name="Explosion" type="Sprite2D" parent="."]
 visible = false
+modulate = Color(1, 1, 1, 0)
 texture = ExtResource("3_6w68s")
 hframes = 8
 vframes = 8
