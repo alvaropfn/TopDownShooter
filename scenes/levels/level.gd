@@ -1,13 +1,20 @@
 extends Node2D
 
 @export var ZOOM = {
-	close = 1,
-	open = 0.65,
-	duration = 1
+	close = Vector2(1,1),
+	open = Vector2(0.65,0.65),
+	duration = 1,
+}
+
+@export var SUN = {
+	inside = 0.55,
+	outside = 0.25,
+	duration = 2,
 }
 
 func _on_gate_gate_entered(body):
 	print("gate entered by: ", body)
+
 
 func _on_gate_gate_exited(body):
 	print("gate exited by: ", body)
@@ -26,9 +33,13 @@ func _physics_process(_delta):
 
 func _on_house_player_entered(_body):
 	var tween = get_tree().create_tween()
-	tween.tween_property($Player/Camera2D, "zoom", Vector2(ZOOM.close, ZOOM.close), ZOOM.duration)
+	tween.set_parallel()
+	tween.tween_property($Player/Camera2D, "zoom", ZOOM.close, ZOOM.duration)
+	tween.tween_property($DirectionalLight2D, "energy", SUN.inside, SUN.duration)
 
 
 func _on_house_player_exited(_body):
 	var tween = get_tree().create_tween()
-	tween.tween_property($Player/Camera2D, "zoom", Vector2(ZOOM.open, ZOOM.open), ZOOM.duration)
+	tween.set_parallel()
+	tween.tween_property($Player/Camera2D, "zoom", ZOOM.open, ZOOM.duration)
+	tween.tween_property($DirectionalLight2D, "energy", SUN.outside, SUN.duration)
