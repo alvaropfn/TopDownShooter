@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3ceyeaokjt01"]
+[gd_scene load_steps=8 format=3 uid="uid://b3ceyeaokjt01"]
 
 [ext_resource type="Texture2D" uid="uid://0mn3cr8oifye" path="res://assets/graphics/objects/ventilation_hole.png" id="1_wgalq"]
 [ext_resource type="Texture2D" uid="uid://dugf3rginfcun" path="res://assets/graphics/decals/white.png" id="2_shg7q"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_jrwww"]
+polygon = PackedVector2Array(0, 87, 23, 83, 41, 76, 63, 60, 74, 43, 82, 24, 86, 0, 83, -24, 73, -43, 60, -60, 42, -74, 21, -83, -1, -86, -22, -83, -43, -75, -62, -60, -75, -42, -83, -21, -86, 0, -84, 23, -74, 44, -61, 62, -43, 75, -23, 82)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_byqtc"]
 radius = 86.0233
@@ -26,6 +29,9 @@ alpha_curve = SubResource("CurveTexture_v0w3y")
 [node name="SteamVent" type="StaticBody2D"]
 collision_layer = 4
 collision_mask = 11
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_jrwww")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_byqtc")

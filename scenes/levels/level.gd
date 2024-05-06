@@ -13,7 +13,11 @@ extends Node2D
 }
 
 func _on_gate_gate_entered(body):
-	print("gate entered by: ", body)
+	var player = body as CharacterBody2D
+	print("gate entered by: ", player)
+	
+	var tween = create_tween()
+	tween.tween_property($Player, "spd_lmt", 0, .75).set_trans(Tween.TRANS_SINE)
 
 
 func _on_gate_gate_exited(body):

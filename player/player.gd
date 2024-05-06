@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 @export var wlk_spd = 400
-@export var run_spd = 600
+@export var run_spd = 1.5
+@export var spd_lmt = 1
 var can_shoot = true
 var can_granade = true
+
 
 var laser_scene: PackedScene = preload("res://ephemeral/lazer.tscn")
 var granade_scene: PackedScene = preload("res://ephemeral/granade.tscn")
@@ -33,11 +35,11 @@ func handle_movement():
 	if Input.is_action_pressed("move_down"): direction.y += 1
 	if Input.is_action_pressed("move_left"): direction.x -= 1
 	
-	var spd = wlk_spd
+	var spd = wlk_spd 
 	if Input.is_action_pressed("sprint"):
-		spd = run_spd
+		spd *= run_spd
 	
-	velocity = direction.normalized() * spd
+	velocity = direction.normalized() * (spd * spd_lmt)
 	move_and_slide()
 
 

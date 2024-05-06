@@ -42,9 +42,9 @@ shape = SubResource("CapsuleShape2D_mekud")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(3.25799e-05, 9)
 scale = Vector2(0.75, 1)
-color = Color(0.34902, 0.705882, 0.952941, 1)
-energy = 2.0
+color = Color(0.34902, 0.705882, 0.952941, 0.627451)
+energy = 5.0
+shadow_enabled = true
 texture = ExtResource("2_ggrmq")
-texture_scale = 0.15
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
