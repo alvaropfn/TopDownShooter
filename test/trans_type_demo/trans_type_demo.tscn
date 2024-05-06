@@ -1,0 +1,347 @@
+[gd_scene load_steps=3 format=3 uid="uid://byoj4eci818op"]
+
+[ext_resource type="Script" path="res://test/trans_type_demo/trans_type_demo.gd" id="1_anbrd"]
+[ext_resource type="Texture2D" uid="uid://nslinbfr28fl" path="res://icon.svg" id="2_1ynnu"]
+
+[node name="TransTypeDemo" type="Node2D"]
+script = ExtResource("1_anbrd")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(155, 166)
+offset = Vector2(2.08165e-12, 2.08165e-12)
+zoom = Vector2(3, 3)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 79.0
+offset_top = -38.0
+offset_right = 221.0
+offset_bottom = -15.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Tween Transitions"
+horizontal_alignment = 1
+
+[node name="TRANS" type="Node2D" parent="."]
+
+[node name="TRANS_LINEAR" type="Node2D" parent="TRANS"]
+
+[node name="Label" type="Label" parent="TRANS/TRANS_LINEAR"]
+offset_right = 114.0
+offset_bottom = 23.0
+text = "TRANS_LINEAR"
+
+[node name="Left" type="Label" parent="TRANS/TRANS_LINEAR"]
+offset_left = 132.0
+offset_top = -2.0
+offset_right = 141.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="right" type="Label" parent="TRANS/TRANS_LINEAR"]
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 267.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="Sprite2D" type="Sprite2D" parent="TRANS/TRANS_LINEAR"]
+position = Vector2(150, 12)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_1ynnu")
+
+[node name="TRANS_SINE" type="Node2D" parent="TRANS"]
+position = Vector2(2.08165e-12, 30)
+
+[node name="Label" type="Label" parent="TRANS/TRANS_SINE"]
+offset_right = 94.0
+offset_bottom = 23.0
+text = "TRANS_SINE"
+
+[node name="Left" type="Label" parent="TRANS/TRANS_SINE"]
+offset_left = 132.0
+offset_top = -2.0
+offset_right = 141.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="right" type="Label" parent="TRANS/TRANS_SINE"]
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 267.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="Sprite2D" type="Sprite2D" parent="TRANS/TRANS_SINE"]
+position = Vector2(150, 12)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_1ynnu")
+
+[node name="TRANS_QUINT" type="Node2D" parent="TRANS"]
+position = Vector2(2.08165e-12, 60)
+
+[node name="Label" type="Label" parent="TRANS/TRANS_QUINT"]
+offset_right = 94.0
+offset_bottom = 23.0
+text = "TRANS_QUINT"
+
+[node name="Left" type="Label" parent="TRANS/TRANS_QUINT"]
+offset_left = 132.0
+offset_top = -2.0
+offset_right = 141.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="right" type="Label" parent="TRANS/TRANS_QUINT"]
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 267.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="Sprite2D" type="Sprite2D" parent="TRANS/TRANS_QUINT"]
+position = Vector2(150, 12)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_1ynnu")
+
+[node name="TRANS_QUART" type="Node2D" parent="TRANS"]
+position = Vector2(2.08165e-12, 90)
+
+[node name="Label" type="Label" parent="TRANS/TRANS_QUART"]
+offset_right = 94.0
+offset_bottom = 23.0
+text = "TRANS_QUART"
+
+[node name="Left" type="Label" parent="TRANS/TRANS_QUART"]
+offset_left = 132.0
+offset_top = -2.0
+offset_right = 141.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="right" type="Label" parent="TRANS/TRANS_QUART"]
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 267.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="Sprite2D" type="Sprite2D" parent="TRANS/TRANS_QUART"]
+position = Vector2(150, 12)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_1ynnu")
+
+[node name="TRANS_QUAD" type="Node2D" parent="TRANS"]
+position = Vector2(2.08165e-12, 120)
+
+[node name="Label" type="Label" parent="TRANS/TRANS_QUAD"]
+offset_right = 94.0
+offset_bottom = 23.0
+text = "TRANS_QUAD"
+
+[node name="Left" type="Label" parent="TRANS/TRANS_QUAD"]
+offset_left = 132.0
+offset_top = -2.0
+offset_right = 141.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="right" type="Label" parent="TRANS/TRANS_QUAD"]
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 267.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="Sprite2D" type="Sprite2D" parent="TRANS/TRANS_QUAD"]
+position = Vector2(150, 12)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_1ynnu")
+
+[node name="TRANS_EXPO" type="Node2D" parent="TRANS"]
+position = Vector2(2.08165e-12, 150)
+
+[node name="Label" type="Label" parent="TRANS/TRANS_EXPO"]
+offset_right = 94.0
+offset_bottom = 23.0
+text = "TRANS_EXPO"
+
+[node name="Left" type="Label" parent="TRANS/TRANS_EXPO"]
+offset_left = 132.0
+offset_top = -2.0
+offset_right = 141.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="right" type="Label" parent="TRANS/TRANS_EXPO"]
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 267.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="Sprite2D" type="Sprite2D" parent="TRANS/TRANS_EXPO"]
+position = Vector2(150, 12)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_1ynnu")
+
+[node name="TRANS_ELASTIC" type="Node2D" parent="TRANS"]
+position = Vector2(2.08165e-12, 180)
+
+[node name="Label" type="Label" parent="TRANS/TRANS_ELASTIC"]
+offset_right = 94.0
+offset_bottom = 23.0
+text = "TRANS_ELASTIC"
+
+[node name="Left" type="Label" parent="TRANS/TRANS_ELASTIC"]
+offset_left = 132.0
+offset_top = -2.0
+offset_right = 141.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="right" type="Label" parent="TRANS/TRANS_ELASTIC"]
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 267.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="Sprite2D" type="Sprite2D" parent="TRANS/TRANS_ELASTIC"]
+position = Vector2(150, 12)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_1ynnu")
+
+[node name="TRANS_CUBIC" type="Node2D" parent="TRANS"]
+position = Vector2(2.08165e-12, 210)
+
+[node name="Label" type="Label" parent="TRANS/TRANS_CUBIC"]
+offset_right = 94.0
+offset_bottom = 23.0
+text = "TRANS_CUBIC"
+
+[node name="Left" type="Label" parent="TRANS/TRANS_CUBIC"]
+offset_left = 132.0
+offset_top = -2.0
+offset_right = 141.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="right" type="Label" parent="TRANS/TRANS_CUBIC"]
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 267.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="Sprite2D" type="Sprite2D" parent="TRANS/TRANS_CUBIC"]
+position = Vector2(150, 12)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_1ynnu")
+
+[node name="TRANS_CIRC" type="Node2D" parent="TRANS"]
+position = Vector2(2.08165e-12, 240)
+
+[node name="Label" type="Label" parent="TRANS/TRANS_CIRC"]
+offset_right = 94.0
+offset_bottom = 23.0
+text = "TRANS_CIRC"
+
+[node name="Left" type="Label" parent="TRANS/TRANS_CIRC"]
+offset_left = 132.0
+offset_top = -2.0
+offset_right = 141.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="right" type="Label" parent="TRANS/TRANS_CIRC"]
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 267.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="Sprite2D" type="Sprite2D" parent="TRANS/TRANS_CIRC"]
+position = Vector2(150, 12)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_1ynnu")
+
+[node name="TRANS_BOUNCE" type="Node2D" parent="TRANS"]
+position = Vector2(2.08165e-12, 270)
+
+[node name="Label" type="Label" parent="TRANS/TRANS_BOUNCE"]
+offset_right = 94.0
+offset_bottom = 23.0
+text = "TRANS_BOUNCE"
+
+[node name="Left" type="Label" parent="TRANS/TRANS_BOUNCE"]
+offset_left = 132.0
+offset_top = -2.0
+offset_right = 141.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="right" type="Label" parent="TRANS/TRANS_BOUNCE"]
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 267.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="Sprite2D" type="Sprite2D" parent="TRANS/TRANS_BOUNCE"]
+position = Vector2(150, 12)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_1ynnu")
+
+[node name="TRANS_BACK" type="Node2D" parent="TRANS"]
+position = Vector2(2.08165e-12, 300)
+
+[node name="Label" type="Label" parent="TRANS/TRANS_BACK"]
+offset_right = 94.0
+offset_bottom = 23.0
+text = "TRANS_BACK"
+
+[node name="Left" type="Label" parent="TRANS/TRANS_BACK"]
+offset_left = 132.0
+offset_top = -2.0
+offset_right = 141.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="right" type="Label" parent="TRANS/TRANS_BACK"]
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 267.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="Sprite2D" type="Sprite2D" parent="TRANS/TRANS_BACK"]
+position = Vector2(150, 12)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_1ynnu")
+
+[node name="TRANS_SPRING" type="Node2D" parent="TRANS"]
+position = Vector2(2.08165e-12, 330)
+
+[node name="Label" type="Label" parent="TRANS/TRANS_SPRING"]
+offset_right = 94.0
+offset_bottom = 23.0
+text = "TRANS_SPRING"
+
+[node name="Left" type="Label" parent="TRANS/TRANS_SPRING"]
+offset_left = 132.0
+offset_top = -2.0
+offset_right = 141.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="right" type="Label" parent="TRANS/TRANS_SPRING"]
+offset_left = 258.0
+offset_top = -2.0
+offset_right = 267.0
+offset_bottom = 21.0
+text = "|"
+
+[node name="Sprite2D" type="Sprite2D" parent="TRANS/TRANS_SPRING"]
+position = Vector2(150, 12)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("2_1ynnu")
