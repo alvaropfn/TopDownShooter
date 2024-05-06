@@ -1,8 +1,9 @@
-[gd_scene load_steps=34 format=3 uid="uid://jbqmo55slxq3"]
+[gd_scene load_steps=35 format=3 uid="uid://jbqmo55slxq3"]
 
 [ext_resource type="Texture2D" uid="uid://dtcbtik2dmsp3" path="res://assets/graphics/tilesets/interior.png" id="1_ayhhs"]
 [ext_resource type="PackedScene" uid="uid://brnjsjao4a868" path="res://objects/simple_light.tscn" id="2_i6oe7"]
 [ext_resource type="PackedScene" uid="uid://bcsjexknkn52d" path="res://objects/wall_lamp.tscn" id="3_8373s"]
+[ext_resource type="PackedScene" uid="uid://b1mcbok1asd24" path="res://objects/light_fan_animation.tscn" id="4_k7efv"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_dewl8"]
 polygon = PackedVector2Array(-195, -21.9203, 195, -19.799, 195, 19.799, -195, 18.3848)
@@ -318,3 +319,8 @@ rotation = 1.5708
 [node name="WallLamp" parent="." instance=ExtResource("3_8373s")]
 position = Vector2(1994, 2497)
 rotation = 1.5708
+
+[node name="LightFanAnimation" parent="." instance=ExtResource("4_k7efv")]
+position = Vector2(1764, 434)
+scale = Vector2(0.512, 0.512)
+frame_progress = 0.341732

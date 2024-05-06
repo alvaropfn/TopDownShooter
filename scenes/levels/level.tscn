@@ -53,6 +53,10 @@ sources/1 = SubResource("TileSetAtlasSource_rlsov")
 [node name="Level" type="Node2D"]
 script = ExtResource("1_1rsdt")
 
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+energy = 0.25
+blend_mode = 1
+
 [node name="Ground" type="Node2D" parent="."]
 
 [node name="Soil" type="Sprite2D" parent="Ground"]
@@ -120,10 +124,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 2.0
 
 [node name="Projectiles" type="Node2D" parent="."]
-
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
-energy = 0.15
-blend_mode = 1
 
 [connection signal="gate_entered" from="Structures/Gate" to="." method="_on_gate_gate_entered"]
 [connection signal="gate_exited" from="Structures/Gate" to="." method="_on_gate_gate_exited"]

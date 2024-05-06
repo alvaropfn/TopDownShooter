@@ -14,5 +14,7 @@ func _physics_process(_delta):
 		printed = true
 
 
-func _on_timer_timeout():
-	queue_free()
+#func _on_timer_timeout():
+	#var animation = $ExplosionAnimationPlayer as AnimationPlayer
+	#print("explode")
+	#animation.active = true
