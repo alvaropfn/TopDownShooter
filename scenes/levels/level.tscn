@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bm4jw3cqlopvs"]
+[gd_scene load_steps=20 format=3 uid="uid://bm4jw3cqlopvs"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_1rsdt"]
 [ext_resource type="PackedScene" uid="uid://bwtk6ww61t1dp" path="res://player/player.tscn" id="1_w8vrc"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cauin55jjnv23" path="res://assets/graphics/tilesets/outside_walls.png" id="9_72ofl"]
 [ext_resource type="PackedScene" uid="uid://jbqmo55slxq3" path="res://scenes/house/House.tscn" id="11_jrbk4"]
 [ext_resource type="PackedScene" uid="uid://b3ceyeaokjt01" path="res://objects/steam_vent.tscn" id="14_7h3cn"]
+[ext_resource type="PackedScene" uid="uid://cq81kw4wjapx1" path="res://enemies/drone.tscn" id="16_lrkk6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l72gp"]
 resource_name = "walls"
@@ -122,6 +123,11 @@ position = Vector2(393, 1664)
 zoom = Vector2(0.65, 0.65)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Drone" parent="Enemies" instance=ExtResource("16_lrkk6")]
+position = Vector2(1023, 1668)
 
 [node name="Projectiles" type="Node2D" parent="."]
 

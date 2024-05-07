@@ -9,9 +9,10 @@ func _ready():
 	health = max_health
 
 
-func damage(amount):
-	if health - amount > 0:
-		health = health - amount
+func apply_damage(value):
+	print(value," damage to: ", get_parent().name, " ", health, " left")
+	if health - value > 0:
+		health -= value
 	else:
 		health = 0
 		emit_signal("entity_die")

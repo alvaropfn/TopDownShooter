@@ -1,7 +1,8 @@
 extends RigidBody2D
 
-@export var spd = 1200
+@export var spd = 1500
 @export var dir = Vector2.UP
+@export var dmg = 1
 
 func _ready():
 	rotate(dir.angle())
@@ -12,11 +13,13 @@ func _ready():
 func _physics_process(_delta):
 	linear_velocity = dir * spd
 	if get_contact_count() > 0:
-		apply_damage(get_colliding_bodies())
+		apply_damage(get_colliding_bodies(), dmg)
 
 
-func apply_damage(body):
-	print("hit: ", body)
+func apply_damage(bodies, value):
+	for body in bodies:
+		if body.has_method("apply_damage"):
+			body.apply_damage(value)
 	queue_free()
 
 
