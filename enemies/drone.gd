@@ -6,5 +6,4 @@ func apply_damage(value):
 
 
 func _on_health_manager_entity_die():
-	print(name, " died")
-	queue_free()
+	$DroneExplosionAnimation.play("Explosion")
