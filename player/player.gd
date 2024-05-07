@@ -50,6 +50,13 @@ func set_lights(value : bool):
 	var lazer_lights = $Lights/LazerLights as PointLight2D
 	lazer_lights.enabled = value
 
+func get_projectiles_node():
+	var root = get_parent()
+	if not root.has_node("Projectiles"):
+		var projectiles = Node2D.new()
+		projectiles.name = "Projectiles"
+		root.add_child(projectiles)
+	return root.get_node("./Projectiles")
 
 func handle_main_weapon():
 	if Input.is_action_pressed("click_primary") and can_shoot:
@@ -66,11 +73,12 @@ func handle_main_weapon():
 		var nozzle_positions = $NozzleArray.get_children()
 		var lazer = laser_scene.instantiate() as RigidBody2D
 		var nozzle = nozzle_positions[randi() % nozzle_positions.size()] as Node2D
-		var root_scene = get_parent().get_node("./Projectiles")
+		
+		var projectiles_node = get_projectiles_node() #get_parent().get_node("./Projectiles")
 		
 		lazer.position = nozzle.global_position
 		lazer.dir = get_player_direction()
-		root_scene.add_child(lazer)
+		projectiles_node.add_child(lazer)
 
 
 func handle_side_weapon():
