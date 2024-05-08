@@ -1,17 +1,31 @@
-[gd_scene load_steps=4 format=3 uid="uid://g7t4681ygo47"]
+[gd_scene load_steps=14 format=3 uid="uid://g7t4681ygo47"]
 
 [ext_resource type="PackedScene" uid="uid://bm4jw3cqlopvs" path="res://scenes/levels/level.tscn" id="1_n7q4i"]
 [ext_resource type="Texture2D" uid="uid://d0tfrmw1ujc5o" path="res://assets/graphics/ground/dirt.png" id="2_73eta"]
 [ext_resource type="TileSet" uid="uid://cqbthifokus7s" path="res://scenes/levels/House.tres" id="2_v51yg"]
+[ext_resource type="Script" path="res://scenes/levels/Sprite2D.gd" id="3_iuh3t"]
+[ext_resource type="PackedScene" uid="uid://b1mcbok1asd24" path="res://objects/light_fan_animation.tscn" id="4_3l13d"]
+[ext_resource type="PackedScene" uid="uid://co6rr4jfpe7v0" path="res://objects/billboard.tscn" id="4_c7oqo"]
+[ext_resource type="PackedScene" uid="uid://bcsjexknkn52d" path="res://objects/wall_lamp.tscn" id="4_lt134"]
+[ext_resource type="Texture2D" uid="uid://ngaa2orltfwk" path="res://assets/graphics/lights/overlays/infrastructure.png" id="5_8eyr8"]
+[ext_resource type="PackedScene" uid="uid://cq81kw4wjapx1" path="res://enemies/drone.tscn" id="5_gi7xv"]
+[ext_resource type="Texture2D" uid="uid://c7wh2oxlnr6he" path="res://assets/graphics/lights/overlays/hole.png" id="8_3elgc"]
+[ext_resource type="Texture2D" uid="uid://d1iiuvnkf4gr4" path="res://assets/graphics/lights/overlays/lattice.png" id="9_urlvg"]
+[ext_resource type="PackedScene" uid="uid://brnjsjao4a868" path="res://objects/simple_light.tscn" id="10_dvvy3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r8h86"]
+size = Vector2(356, 760)
 
 [node name="Inside" instance=ExtResource("1_n7q4i")]
+script = null
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
-position = Vector2(3930, 3006)
+position = Vector2(4010, 3070)
 texture = ExtResource("2_73eta")
 region_enabled = true
 region_rect = Rect2(-2449.64, -1467.95, 15000, 10000)
+script = ExtResource("3_iuh3t")
 
 [node name="TileMap" type="TileMap" parent="Ground" index="1"]
 tile_set = ExtResource("2_v51yg")
@@ -21,8 +35,152 @@ layer_0/tile_data = PackedInt32Array(327704, 65537, 1, 393240, 65537, 1, -65519,
 layer_1/name = "Outer Walls"
 layer_1/tile_data = PackedInt32Array(1114116, 262145, 2, 1114117, 262145, 2, 1114118, 262145, 2, 1114119, 262145, 2, 1114120, 262145, 2, 1114121, 262145, 2, 1114122, 262145, 2, 1114123, 262145, 2, -65527, 262145, 2, -65526, 262145, 2, -65525, 262145, 2, -65524, 262145, 2, -65523, 262145, 2, -65522, 262145, 2, -65521, 262145, 2, -65520, 262145, 2, -65519, 262145, 2, -65518, 262145, 2, 7, 262145, 2, 6, 262145, 2, 5, 262145, 2, 4, 262145, 2, 3, 262145, 2, 2, 262145, 2, 1, 262145, 2, 0, 262145, 2, 65535, 262145, 2, 65534, 262145, 2, 65533, 262145, 2, 65532, 262145, 2, 655381, 262145, 0, 655380, 262145, 0, 655379, 262145, 0, 655378, 262145, 0, 655377, 262145, 0, 655376, 262145, 0, 655375, 262145, 0, 655374, 262145, 0, 655373, 262145, 0, 262167, 262145, 0, 262166, 262145, 0, 262165, 262145, 0, 262164, 262145, 0, 655362, 262145, 0, 655361, 262145, 0, 655360, 262145, 0, 720895, 262145, 0, 720894, 262145, 0, 720893, 262145, 0, 720892, 262145, 0, 262168, 327681, 0, -65517, 327681, 0, 655363, 327681, 0, 65531, 196609, 0, -65528, 196609, 0, 655372, 196609, 0, 655382, 327681, 2, 458776, 327681, 2, 8, 327681, 2, 1114124, 327681, 2, 1114115, 196609, 2, 720891, 196609, 2, 262163, 196609, 2, 786444, 327681, 1, 851980, 327681, 1, 917516, 327681, 1, 983052, 327681, 1, 1048588, 327681, 1, 720899, 327681, 1, 786435, 327681, 1, 851971, 327681, 1, 917507, 327681, 1, 983043, 327681, 1, 1048579, 327681, 1, 131067, 327681, 1, 196603, 327681, 1, 262139, 327681, 1, 327675, 327681, 1, 393211, 327681, 1, 458747, 327681, 1, 524283, 327681, 1, 589819, 327681, 1, 655355, 327681, 1, 524310, 327681, 1, 589846, 327681, 1, 458774, 196609, 0, 458775, 262145, 0, 19, 196609, 1, 65555, 196609, 1, 131091, 196609, 1, 196627, 196609, 1, 720908, 327681, 1)
 layer_2/name = "Inner Walls"
-layer_2/tile_data = PackedInt32Array(524309, 262145, 7, 524310, 393217, 7, 524307, 393217, 7, 524306, 131073, 7, 589842, 65537, 6, 655378, 327681, 8, 524305, 1, 6, 524304, 1, 6, 524303, 262145, 7, 524301, 393217, 7, 524300, 1, 7, 589836, 65537, 6, 655372, 65537, 6, 720908, 393217, 7, 720906, 262145, 7, 720900, 1, 6, 720901, 1, 6, 720902, 1, 6, 720903, 1, 6, 720904, 393217, 7, 720907, 1, 6, 655363, 65537, 6, 589827, 327681, 6, 458755, 327681, 8, 393219, 65537, 6, 327683, 196609, 7, 327682, 262145, 7, 393215, 1, 6, 393214, 1, 6, 393213, 1, 6, 393212, 1, 6, 393211, 262145, 7, 327680, 393217, 7, 262147, 65537, 6, 196611, 65537, 6, 131075, 65537, 6, 65539, 65537, 6, 3, 327681, 6, 8, 65537, 6, 65544, 65537, 6, 131080, 65537, 6, 196616, 1, 8, 196617, 1, 6, 196618, 1, 6, 196619, 1, 6, 196620, 1, 6, 196624, 1, 6, 196625, 1, 6, 196626, 1, 6, 196627, 393217, 7, 196623, 262145, 7, 196621, 393217, 7)
+layer_2/tile_data = PackedInt32Array(524309, 262145, 7, 524310, 393217, 7, 524307, 393217, 7, 524306, 131073, 7, 589842, 65537, 6, 655378, 327681, 8, 524305, 1, 6, 524304, 1, 6, 524303, 262145, 7, 524301, 393217, 7, 524300, 1, 7, 589836, 65537, 6, 655372, 65537, 6, 720908, 393217, 7, 720906, 262145, 7, 720900, 1, 6, 720901, 1, 6, 720902, 1, 6, 720903, 1, 6, 720904, 393217, 7, 720907, 1, 6, 655363, 65537, 6, 589827, 327681, 6, 458755, 327681, 8, 393219, 65537, 6, 327683, 196609, 7, 327682, 262145, 7, 393215, 1, 6, 393214, 1, 6, 393213, 1, 6, 393212, 1, 6, 393211, 262145, 7, 327680, 393217, 7, 262147, 65537, 6, 196611, 65537, 6, 131075, 65537, 6, 65539, 65537, 6, 3, 327681, 6, 8, 65537, 6, 65544, 65537, 6, 131080, 65537, 6, 196616, 1, 8, 196617, 1, 6, 196618, 1, 6, 196619, 1, 6, 196620, 1, 6, 196624, 1, 6, 196625, 1, 6, 196626, 1, 6, 196627, 393217, 7, 196623, 262145, 7, 196621, 393217, 7, 720899, 262145, 7)
 
-[node name="Player" parent="." index="5"]
-position = Vector2(9297, 2341)
-metadata/_edit_group_ = true
+[node name="Billboard" parent="Structures" index="0" instance=ExtResource("4_c7oqo")]
+position = Vector2(2509, 4397)
+rotation = -3.14159
+
+[node name="Drone" parent="Enemies" index="0" instance=ExtResource("5_gi7xv")]
+position = Vector2(8171, 2345)
+rotation = -1.57079
+
+[node name="Player" parent="." index="4"]
+position = Vector2(9159, 2341)
+
+[node name="WallLamp" parent="Lights" index="0" instance=ExtResource("4_lt134")]
+position = Vector2(8626, 3671)
+rotation = 1.5708
+
+[node name="WallLamp2" parent="Lights" index="1" instance=ExtResource("4_lt134")]
+position = Vector2(7314, 3695)
+rotation = -1.5708
+
+[node name="WallLamp3" parent="Lights" index="2" instance=ExtResource("4_lt134")]
+position = Vector2(7009, -42)
+
+[node name="WallLamp4" parent="Lights" index="3" instance=ExtResource("4_lt134")]
+position = Vector2(3895, -38)
+
+[node name="WallLamp5" parent="Lights" index="4" instance=ExtResource("4_lt134")]
+position = Vector2(5460, -38)
+
+[node name="WallLamp6" parent="Lights" index="5" instance=ExtResource("4_lt134")]
+position = Vector2(4481, 4582)
+
+[node name="WallLamp7" parent="Lights" index="6" instance=ExtResource("4_lt134")]
+position = Vector2(4714, 6414)
+rotation = 1.57079
+
+[node name="WallLamp8" parent="Lights" index="7" instance=ExtResource("4_lt134")]
+position = Vector2(1751, 6669)
+rotation = 3.14159
+
+[node name="WallLamp9" parent="Lights" index="8" instance=ExtResource("4_lt134")]
+position = Vector2(1514, 4854)
+rotation = 4.71238
+
+[node name="WallLamp10" parent="Lights" index="9" instance=ExtResource("4_lt134")]
+position = Vector2(974, 350)
+rotation = 6.28318
+
+[node name="WallLamp11" parent="Lights" index="10" instance=ExtResource("4_lt134")]
+position = Vector2(-1347, 354)
+rotation = 6.28318
+
+[node name="WallLamp12" parent="Lights" index="11" instance=ExtResource("4_lt134")]
+position = Vector2(-1588, 3317)
+rotation = 4.71238
+
+[node name="LightFanAnimation" parent="Lights" index="13" instance=ExtResource("4_3l13d")]
+position = Vector2(9231, 2323)
+
+[node name="LightFanAnimation2" parent="Lights" index="14" instance=ExtResource("4_3l13d")]
+position = Vector2(3721, 4500)
+
+[node name="LightFanAnimation3" parent="Lights" index="15" instance=ExtResource("4_3l13d")]
+position = Vector2(583, 2154)
+
+[node name="LightFanAnimation4" parent="Lights" index="16" instance=ExtResource("4_3l13d")]
+position = Vector2(5663, 1366)
+
+[node name="LightFanAnimation5" parent="Lights" index="17" instance=ExtResource("4_3l13d")]
+position = Vector2(5694, 3346)
+
+[node name="Infrasctucture" type="PointLight2D" parent="Lights" index="18"]
+position = Vector2(7999.27, 2923.08)
+scale = Vector2(1.37575, 3.93218)
+color = Color(1, 1, 1, 0.294118)
+energy = 2.0
+texture = ExtResource("5_8eyr8")
+
+[node name="Infrasctucture2" type="PointLight2D" parent="Lights" index="19"]
+position = Vector2(-197, 3094)
+scale = Vector2(1.37575, 3.31284)
+color = Color(1, 1, 1, 0.294118)
+energy = 2.0
+texture = ExtResource("5_8eyr8")
+
+[node name="Hole" type="PointLight2D" parent="Lights" index="20"]
+position = Vector2(2346, 1011)
+scale = Vector2(5.44955, 5.44955)
+color = Color(1, 1, 1, 0.294118)
+energy = 2.0
+texture = ExtResource("8_3elgc")
+
+[node name="Hole2" type="PointLight2D" parent="Lights" index="21"]
+position = Vector2(3114, 5593)
+scale = Vector2(5.44955, 5.44955)
+color = Color(1, 1, 1, 0.294118)
+energy = 2.0
+texture = ExtResource("8_3elgc")
+
+[node name="Lattice" type="PointLight2D" parent="Lights" index="22"]
+position = Vector2(5269.25, 3938)
+scale = Vector2(1.22757, 1)
+color = Color(1, 1, 1, 0.294118)
+energy = 2.0
+texture = ExtResource("9_urlvg")
+
+[node name="Lattice2" type="PointLight2D" parent="Lights" index="23"]
+position = Vector2(6051, 3935)
+scale = Vector2(1.22757, 1)
+color = Color(1, 1, 1, 0.294118)
+energy = 2.0
+texture = ExtResource("9_urlvg")
+
+[node name="Lattice3" type="PointLight2D" parent="Lights" index="24"]
+position = Vector2(6823, 3929)
+scale = Vector2(1.22757, 1)
+color = Color(1, 1, 1, 0.294118)
+energy = 2.0
+texture = ExtResource("9_urlvg")
+
+[node name="Lattice4" type="PointLight2D" parent="Lights" index="25"]
+position = Vector2(591, 3924)
+scale = Vector2(1.22757, 1)
+color = Color(1, 1, 1, 0.294118)
+energy = 2.0
+texture = ExtResource("9_urlvg")
+
+[node name="SimpleLigth" parent="Lights" index="26" instance=ExtResource("10_dvvy3")]
+position = Vector2(1161, 2178)
+
+[node name="SimpleLigth2" parent="Lights" index="27" instance=ExtResource("10_dvvy3")]
+position = Vector2(1161, 4010)
+rotation = -3.14159
+
+[node name="SimpleLigth3" parent="Lights" index="28" instance=ExtResource("10_dvvy3")]
+position = Vector2(4837, 3521)
+rotation = -4.71238
+
+[node name="SimpleLigth4" parent="Lights" index="29" instance=ExtResource("10_dvvy3")]
+position = Vector2(1562, 4448)
+rotation = -3.14159
+
+[node name="Area2D" type="Area2D" parent="." index="6"]
+position = Vector2(9743, 2323)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(-189, 18)
+shape = SubResource("RectangleShape2D_r8h86")

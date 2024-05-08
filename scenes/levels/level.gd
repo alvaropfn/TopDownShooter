@@ -8,12 +8,13 @@ class_name LevelParent
 }
 
 func _physics_process(_delta):
-	var player = $Player/Camera2D.get_parent() as Node2D
-	var dir = (get_global_mouse_position() - player.position).normalized()
+	var player = $Player as Node2D
 	var cam = $Player/Camera2D as Camera2D
+	if not player or not cam: return
+	
+	var dir = (get_global_mouse_position() - player.position).normalized()
 	var current = cam.offset
 	var target = dir * 300 
 	var speed = 0.1
 	
 	cam.offset = lerp(current, target, speed)
-

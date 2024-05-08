@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cq81kw4wjapx1"]
+[gd_scene load_steps=11 format=3 uid="uid://cq81kw4wjapx1"]
 
 [ext_resource type="Texture2D" uid="uid://b1om4qpifb0a8" path="res://assets/graphics/enemies/drone.png" id="1_cijmm"]
 [ext_resource type="Script" path="res://enemies/drone.gd" id="1_wg5s0"]
@@ -132,6 +132,9 @@ _data = {
 "RESET": SubResource("Animation_ufvvw")
 }
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nn71c"]
+polygon = PackedVector2Array(-37, 61, -20, 68, -11, 72, 7, 72, 16, 70, 36, 62, 39, 45, 55, 50, 60, 42, 66, 29, 69, 15, 68, 4, 66, -19, 56, -38, 46, -50, 35, -58, 32, -65, 26, -67, 18, -64, 9, -68, -5, -68, -18, -65, -21, -67, -27, -67, -30, -64, -31, -59, -36, -57, -44, -51, -52, -42, -60, -31, -65, -15, -67, -1, -68, 12, -66, 25, -62, 37, -56, 47, -40, 45)
+
 [node name="Drone" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 15
@@ -143,6 +146,7 @@ script = ExtResource("1_wg5s0")
 texture = ExtResource("1_cijmm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CircleShape2D_urr6g")
 
 [node name="Explosion" type="Sprite2D" parent="."]
@@ -162,10 +166,30 @@ libraries = {
 
 [node name="ExplosionLight" type="PointLight2D" parent="."]
 modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -3)
 color = Color(1, 0.870588, 0.227451, 1)
 energy = 0.0
 texture = ExtResource("5_cht5i")
 texture_scale = 2.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-43, 49)
+color = Color(1, 1, 1, 0.494118)
+energy = 2.0
+shadow_enabled = true
+shadow_filter = 1
+texture = ExtResource("5_cht5i")
+
+[node name="PointLight2D2" type="PointLight2D" parent="."]
+position = Vector2(41, 49)
+color = Color(1, 1, 1, 0.494118)
+energy = 2.0
+shadow_enabled = true
+shadow_filter = 1
+texture = ExtResource("5_cht5i")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_nn71c")
 
 [connection signal="entity_die" from="HealthManager" to="." method="_on_health_manager_entity_die"]
 [connection signal="hited" from="HealthManager" to="." method="_on_health_manager_hited"]
