@@ -19,8 +19,8 @@ func _physics_process(_delta):
 func apply_damage(bodies, value):
 	queue_free()
 	for body in bodies:
-		if  "apply_damage" in body:
-			body.apply_damage(value)
+		if body.has_node("HealthManager"):
+			body.find_child("HealthManager").hit(value)
 
 
 func _on_timer_timeout():

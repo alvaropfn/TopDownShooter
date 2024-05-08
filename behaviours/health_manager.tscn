@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://behaviours/health_manager.gd" id="1_mfs4u"]
 
-[node name="health_manager" type="Node"]
+[node name="HealthManager" type="Node"]
 script = ExtResource("1_mfs4u")

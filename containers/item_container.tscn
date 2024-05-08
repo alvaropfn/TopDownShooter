@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkufxqxrnujt8"]
+
+[ext_resource type="Script" path="res://containers/item_container.gd" id="1_r22vw"]
+[ext_resource type="PackedScene" uid="uid://bps0kfcr20nl0" path="res://behaviours/health_manager.tscn" id="2_n2ch2"]
+
+[node name="ItemContainer" type="StaticBody2D"]
+script = ExtResource("1_r22vw")
+
+[node name="HealthManager" parent="." instance=ExtResource("2_n2ch2")]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="hited" from="HealthManager" to="." method="_on_health_manager_hited"]

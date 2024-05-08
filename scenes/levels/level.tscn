@@ -14,6 +14,10 @@ blend_mode = 1
 
 [node name="Structures" type="Node2D" parent="."]
 
+[node name="Projectiles" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("1_w8vrc")]
 position = Vector2(393, 1664)
 
@@ -21,7 +25,3 @@ position = Vector2(393, 1664)
 zoom = Vector2(0.65, 0.65)
 position_smoothing_enabled = true
 position_smoothing_speed = 2.0
-
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="Projectiles" type="Node2D" parent="."]

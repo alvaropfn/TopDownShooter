@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://dt6krhkyqrwp"]
+
+[ext_resource type="PackedScene" uid="uid://dkufxqxrnujt8" path="res://containers/item_container.tscn" id="1_3fyl0"]
+[ext_resource type="Script" path="res://containers/toilet.gd" id="2_1b405"]
+[ext_resource type="Texture2D" uid="uid://7hr1kwejp2eu" path="res://assets/graphics/objects/toilet.png" id="2_x78gn"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_4e8ev"]
+polygon = PackedVector2Array(93, -116, 92, -122, -89, -122, -90, -114, -97, -117, -109, -111, -117, -102, -117, -73, -110, -60, -104, -59, -94, -59, -89, -61, -100, -37, -99, 1, -90, 34, -75, 63, -36, 107, -19, 119, -4, 125, 16, 119, 37, 106, 77, 62, 89, 35, 99, 2, 100, -36, 89, -59, 94, -61, 104, -59, 112, -64, 117, -72, 117, -101, 110, -109, 100, -115)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pbegf"]
+radius = 29.0
+height = 236.0
+
+[node name="Toilet" instance=ExtResource("1_3fyl0")]
+script = ExtResource("2_1b405")
+
+[node name="LightOccluder2D" parent="." index="1"]
+occluder = SubResource("OccluderPolygon2D_4e8ev")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="2"]
+polygon = PackedVector2Array(-90, -55, -99, -39, -100, -1, -83, 50, -37, 106, 0, 125, 39, 106, 79, 56, 101, -1, 99, -40, 91, -55)
+
+[node name="CollisionShape2D" parent="." index="3"]
+position = Vector2(1.3415e-11, -86)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_pbegf")
+
+[node name="Sprite2D" parent="." index="4"]
+texture = ExtResource("2_x78gn")
+metadata/_edit_lock_ = true

@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=3 uid="uid://dd2mij56e8irw"]
+
+[ext_resource type="PackedScene" uid="uid://dkufxqxrnujt8" path="res://containers/item_container.tscn" id="1_5utns"]
+[ext_resource type="Script" path="res://containers/create.gd" id="2_eggtt"]
+[ext_resource type="Texture2D" uid="uid://dedit761qlqsc" path="res://assets/graphics/objects/box/base.png" id="2_iq3ec"]
+[ext_resource type="Texture2D" uid="uid://bp1ek7m6exy6f" path="res://assets/graphics/objects/box/lid.png" id="3_l44lu"]
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_7t3nx"]
+polygon = PackedVector2Array(-184, -87, -200, -74, -200, 78, -192, 89, 189, 89, 199, 77, 199, -72, 181, -88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uq2b6"]
+size = Vector2(378, 176)
+
+[node name="Create" instance=ExtResource("1_5utns")]
+script = ExtResource("2_eggtt")
+
+[node name="LightOccluder2D" parent="." index="1"]
+occluder = SubResource("OccluderPolygon2D_7t3nx")
+
+[node name="CollisionShape2D" parent="." index="2"]
+shape = SubResource("RectangleShape2D_uq2b6")
+
+[node name="Lid" type="Sprite2D" parent="." index="3"]
+position = Vector2(0, 13)
+texture = ExtResource("3_l44lu")
+
+[node name="Sprite2D" parent="." index="4"]
+texture = ExtResource("2_iq3ec")
