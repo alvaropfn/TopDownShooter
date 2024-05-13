@@ -1,0 +1,6 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://c56al5yee4ajg"]
+
+[ext_resource type="FontFile" uid="uid://i7lwqwuo8ir5" path="res://assets/graphics/ui/subatomic.tsoonami.ttf" id="1_hiqch"]
+
+[resource]
+default_font = ExtResource("1_hiqch")
