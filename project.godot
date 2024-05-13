@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Top Down Shooter 2d"
-run/main_scene="res://scenes/levels/outside.tscn"
+run/main_scene="res://scenes/main.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameEventController="*res://scenes/GameEventController.gd"
 
 [display]
 

@@ -1,9 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://g7t4681ygo47"]
+[gd_scene load_steps=15 format=3 uid="uid://g7t4681ygo47"]
 
 [ext_resource type="PackedScene" uid="uid://bm4jw3cqlopvs" path="res://scenes/levels/level.tscn" id="1_n7q4i"]
 [ext_resource type="Texture2D" uid="uid://d0tfrmw1ujc5o" path="res://assets/graphics/ground/dirt.png" id="2_73eta"]
+[ext_resource type="Script" path="res://scenes/levels/inside.gd" id="2_bdkhe"]
 [ext_resource type="TileSet" uid="uid://cqbthifokus7s" path="res://scenes/levels/House.tres" id="2_v51yg"]
-[ext_resource type="Script" path="res://scenes/levels/Sprite2D.gd" id="3_iuh3t"]
 [ext_resource type="PackedScene" uid="uid://b1mcbok1asd24" path="res://objects/light_fan_animation.tscn" id="4_3l13d"]
 [ext_resource type="PackedScene" uid="uid://co6rr4jfpe7v0" path="res://objects/billboard.tscn" id="4_c7oqo"]
 [ext_resource type="PackedScene" uid="uid://bcsjexknkn52d" path="res://objects/wall_lamp.tscn" id="4_lt134"]
@@ -13,11 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://d1iiuvnkf4gr4" path="res://assets/graphics/lights/overlays/lattice.png" id="9_urlvg"]
 [ext_resource type="PackedScene" uid="uid://brnjsjao4a868" path="res://objects/simple_light.tscn" id="10_dvvy3"]
 
+[sub_resource type="GDScript" id="GDScript_3m7al"]
+script/source = "extends LevelParent
+
+
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r8h86"]
 size = Vector2(356, 760)
 
 [node name="Inside" instance=ExtResource("1_n7q4i")]
-script = null
+script = ExtResource("2_bdkhe")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
@@ -25,7 +31,7 @@ position = Vector2(4010, 3070)
 texture = ExtResource("2_73eta")
 region_enabled = true
 region_rect = Rect2(-2449.64, -1467.95, 15000, 10000)
-script = ExtResource("3_iuh3t")
+script = SubResource("GDScript_3m7al")
 
 [node name="TileMap" type="TileMap" parent="Ground" index="1"]
 tile_set = ExtResource("2_v51yg")
@@ -178,9 +184,11 @@ rotation = -4.71238
 position = Vector2(1562, 4448)
 rotation = -3.14159
 
-[node name="Area2D" type="Area2D" parent="." index="6"]
+[node name="GateExitArea" type="Area2D" parent="." index="6"]
 position = Vector2(9743, 2323)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GateExitArea" index="0"]
 position = Vector2(-189, 18)
 shape = SubResource("RectangleShape2D_r8h86")
+
+[connection signal="body_entered" from="GateExitArea" to="." method="_on_gate_exit_area_body_entered"]

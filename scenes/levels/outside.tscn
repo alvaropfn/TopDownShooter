@@ -52,11 +52,6 @@ sources/1 = SubResource("TileSetAtlasSource_rlsov")
 
 [node name="Outside" instance=ExtResource("1_afu15")]
 script = ExtResource("2_07ek6")
-ZOOM = {
-"close": Vector2(1, 1),
-"duration": 1,
-"open": Vector2(0.65, 0.65)
-}
 
 [node name="Soil" type="Sprite2D" parent="Ground" index="0"]
 texture_repeat = 2
@@ -111,6 +106,9 @@ rotation = -0.752237
 
 [node name="SteamVent" parent="Structures" index="3" instance=ExtResource("14_ht2oj")]
 position = Vector2(332, 1013)
+
+[node name="Player" parent="." index="4"]
+position = Vector2(579, 423)
 
 [connection signal="player_entered" from="Structures/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="Structures/House" to="." method="_on_house_player_exited"]

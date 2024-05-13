@@ -13,12 +13,23 @@ var granade_scene: PackedScene = preload("res://ephemeral/granade.tscn")
 func _ready():
 	pass
 
+func handle_camera():
+	var cam = $Camera2D as Camera2D
+	if not cam: return
+	
+	var dir = (get_global_mouse_position() - position).normalized()
+	var current = cam.offset
+	var target = dir * 300 
+	var speed = 0.1
+	
+	cam.offset = lerp(current, target, speed)
 
 func _physics_process(delta):
 	handle_rotation(delta)
 	handle_movement()
 	handle_main_weapon()
 	handle_side_weapon()
+	handle_camera()
 
 
 func handle_rotation(_delta):

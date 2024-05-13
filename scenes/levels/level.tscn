@@ -24,6 +24,6 @@ position_smoothing_speed = 2.0
 
 [node name="Lights" type="Node2D" parent="."]
 
-[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Lights"]
+[node name="AmbientLight" type="DirectionalLight2D" parent="Lights"]
 energy = 0.25
 blend_mode = 1
