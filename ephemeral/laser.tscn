@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://b13jceck0mfb6"]
 
-[ext_resource type="Texture2D" uid="uid://2akrbspdmkem" path="res://assets/graphics/projectiles/blue.png" id="1_r8yp3"]
-[ext_resource type="Script" path="res://ephemeral/lazer.gd" id="1_yuugw"]
-[ext_resource type="Texture2D" uid="uid://cqge5sij7mvnr" path="res://assets/graphics/lights/textures/circle.png" id="2_ggrmq"]
+[ext_resource type="Script" path="res://ephemeral/laser.gd" id="1_357bd"]
+[ext_resource type="Texture2D" uid="uid://2akrbspdmkem" path="res://assets/graphics/projectiles/blue.png" id="2_e8ffg"]
+[ext_resource type="Texture2D" uid="uid://cqge5sij7mvnr" path="res://assets/graphics/lights/textures/circle.png" id="3_7gtjc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_an3vq"]
 
@@ -19,7 +19,7 @@ physics_material_override = SubResource("PhysicsMaterial_an3vq")
 lock_rotation = true
 max_contacts_reported = 1
 contact_monitor = true
-script = ExtResource("1_yuugw")
+script = ExtResource("1_357bd")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.0
@@ -28,12 +28,12 @@ autostart = true
 
 [node name="LazerSprite" type="Sprite2D" parent="."]
 position = Vector2(-1, 70)
-texture = ExtResource("1_r8yp3")
+texture = ExtResource("2_e8ffg")
 
 [node name="LazerMainLight" type="PointLight2D" parent="."]
 scale = Vector2(0.264687, 0.264687)
 energy = 0.6
-texture = ExtResource("2_ggrmq")
+texture = ExtResource("3_7gtjc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2.53399e-05, -7)
@@ -45,6 +45,6 @@ scale = Vector2(0.75, 1)
 color = Color(0.34902, 0.705882, 0.952941, 0.627451)
 energy = 5.0
 shadow_enabled = true
-texture = ExtResource("2_ggrmq")
+texture = ExtResource("3_7gtjc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

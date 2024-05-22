@@ -3,11 +3,14 @@ extends CharacterBody2D
 @export var wlk_spd = 400
 @export var run_spd = 1.5
 @export var spd_lmt = 1
+
+signal lazer_shoot
+signal granade_shoot
+
 var can_shoot = true
 var can_granade = true
 
-
-var laser_scene: PackedScene = preload("res://ephemeral/lazer.tscn")
+var laser_scene: PackedScene = preload("res://ephemeral/laser.tscn")
 var granade_scene: PackedScene = preload("res://ephemeral/granade.tscn")
 
 func _ready():
@@ -69,10 +72,21 @@ func get_projectiles_node():
 		root.add_child(projectiles)
 	return root.get_node("./Projectiles")
 
+func get_lazer_amount():
+	return GameEventController.laser_amount
+
+
+func get_granade_amount():
+		return GameEventController.granade_count
+
+
 func handle_main_weapon():
-	if Input.is_action_pressed("click_primary") and can_shoot:
+	if Input.is_action_pressed("click_primary") and can_shoot and get_lazer_amount() > 0:
+		GameEventController.laser_amount -= 1
 		
+		emit_signal("lazer_shoot")
 		set_lights(true)
+		
 		var exaust = $Vents.get_children()
 		for vent in range(exaust.size()):
 			exaust[vent].emitting = true
@@ -93,7 +107,11 @@ func handle_main_weapon():
 
 
 func handle_side_weapon():
-	if Input.is_action_pressed("click_secondary") and can_granade:
+	if Input.is_action_pressed("click_secondary") and can_granade and get_granade_amount() > 0:
+		
+		GameEventController.granade_count -= 1
+		emit_signal("granade_shoot")
+		
 		can_granade = false
 		$GranadeTimer.start()
 		

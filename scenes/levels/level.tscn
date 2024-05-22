@@ -30,3 +30,6 @@ energy = 0.25
 blend_mode = 1
 
 [node name="Ui" parent="." instance=ExtResource("3_f1fsq")]
+
+[connection signal="granade_shoot" from="Player" to="." method="_on_player_granade_shoot"]
+[connection signal="lazer_shoot" from="Player" to="." method="_on_player_lazer_shoot"]

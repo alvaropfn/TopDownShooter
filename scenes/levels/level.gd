@@ -16,11 +16,6 @@ signal change_scene
 }
 
 
-#var map_scene = {
-	#inside = preload("res://scenes/levels/inside.tscn"),
-	#outisde = preload("res://scenes/levels/outside.tscn")
-#}
-
 func _physics_process(_delta):
 	#var player = $Player as Node2D
 	#var cam = $Player/Camera2D as Camera2D
@@ -59,3 +54,12 @@ func close_camera():
 	tween.set_parallel()
 	tween.tween_property(camera, "zoom", ZOOM.close, ZOOM.duration)
 	tween.tween_property(light, "energy", SUN.inside, SUN.duration)
+
+
+func _on_player_lazer_shoot():
+	$Ui.update_laser_text()
+
+
+func _on_player_granade_shoot():
+	$Ui.update_granade_text()
+
