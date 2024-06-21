@@ -24,6 +24,5 @@ func apply_damage(bodies, value):
 
 
 func _on_timer_timeout():
-	print('lazer fade')
 	queue_free()
 	

@@ -31,7 +31,10 @@ func _physics_process(_delta):
 
 
 func scene_changer(new_scene: PackedScene, old_scene):
-	GameEventController.change_scene(new_scene, old_scene)
+	print('level')
+	#emit_signal("change_scene", new_scene, old_scene)
+	#GameEventController.change_scene(new_scene, old_scene)
+	$TransitionLayer.change_scene(new_scene, old_scene)
 
 
 func open_camera():

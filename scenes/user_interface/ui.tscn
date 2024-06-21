@@ -49,7 +49,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("1_r0hnr")
-text = "10"
+text = "5"
 
 [node name="TextureRect" type="TextureRect" parent="AmmoCounter/HBoxContainer/GranadeCount"]
 layout_mode = 2

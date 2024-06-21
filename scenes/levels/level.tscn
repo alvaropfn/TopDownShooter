@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm4jw3cqlopvs"]
+[gd_scene load_steps=5 format=3 uid="uid://bm4jw3cqlopvs"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_1rsdt"]
 [ext_resource type="PackedScene" uid="uid://bwtk6ww61t1dp" path="res://player/player.tscn" id="1_w8vrc"]
 [ext_resource type="PackedScene" uid="uid://mgpkp3338n2y" path="res://scenes/user_interface/ui.tscn" id="3_f1fsq"]
+[ext_resource type="PackedScene" uid="uid://y67tp2tler84" path="res://globals/transition_layer.tscn" id="4_5hagy"]
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_1rsdt")
@@ -30,6 +31,8 @@ energy = 0.25
 blend_mode = 1
 
 [node name="Ui" parent="." instance=ExtResource("3_f1fsq")]
+
+[node name="TransitionLayer" parent="." instance=ExtResource("4_5hagy")]
 
 [connection signal="granade_shoot" from="Player" to="." method="_on_player_granade_shoot"]
 [connection signal="lazer_shoot" from="Player" to="." method="_on_player_lazer_shoot"]
